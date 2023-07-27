@@ -13,7 +13,7 @@ def home():
 
 @app.route("/blog")
 def blog():
-    with open("templates/pages/blog_posts/blog_database.json") as f:
+    with open("api/templates/pages/blog_posts/blog_database.json") as f:
         data = json.load(f)
         sorted_posts = sorted(data, reverse=True, key=get_post_date) # type: ignore
         return flask.render_template("pages/blog.html", posts=enumerate(sorted_posts))
@@ -24,7 +24,7 @@ def roadmap():
 
 @app.route("/blog/<int:blog_id>")
 def blog_post(blog_id: int):
-    with open("templates/pages/blog_posts/blog_database.json") as f:
+    with open("api/templates/pages/blog_posts/blog_database.json") as f:
         metadata = {}
         data = json.load(f)
         for post in data:
