@@ -1,0 +1,9 @@
+[
+    {
+        "blog_id": 1,
+        "title": "My first post!",
+        "description": "An intro to myself and my work.",
+        "date": "2023-07-22",
+        "filename": "blog_1.html"
+    }
+]

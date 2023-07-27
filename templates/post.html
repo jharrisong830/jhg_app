@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar sticky-top navbar-expand-md" data-bs-theme="dark" style="background-color: #253863">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold technicolor" href="/">John.com</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/blog">Blog</a>
+        <a class="nav-link" href="/roadmap">Roadmap</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="px-4 py-5 text-center">
+  <h1 class="display-5 text-body-emphasis technicolor">{{ title }}</h1>
+  <p class="lead">{{ description }}</p>
+</div>
+
+
+
+
+
+<div class="px-4 mx-4">
+  <a href="/blog" class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(-0.125rem, 0, 0);">
+    <img class="bi" src="../static/images/link%20icons/backarrow.svg">
+    All blog posts
+  </a>
+  <p class="lead">{{ date }}</p>
+
+  <div class="text-body-emphasis">
+    {% block post_text %}
+    {% endblock %}
+  </div>
+</div>
+
+{% endblock %}

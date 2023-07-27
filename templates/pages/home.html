@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar sticky-top navbar-expand-md" data-bs-theme="dark" style="background-color: #253863">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold technicolor" href="#">John.com</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="/blog">Blog</a>
+        <a class="nav-link" href="/roadmap">Roadmap</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="px-4 py-5 text-center">
+  <h1 id="typing" class="display-3 fw-bold text-body-emphasis technicolor"></h1>
+  <p class="lead">Welcome to my home on the web.</p>
+</div>
+
+
+
+<div class="container py-5">
+  <div class="row flex-lg-row align-items-center">
+    <div class="col-md-4 pb-2 pb-md-0">
+      <h1 class="display-4 fw-bold technicolor">About me.</h1>
+    </div>
+    <div class="col-md-8 text-body-emphasis">
+      <p>I'm John! I'm a 3/4 Computer Science major at Stevens Institute of Technology in Hoboken, NJ.</p>
+
+      <p>Programming is one of my greatest passions; I am always looking for ways to further develop my skills and branch out of my comfort zone. My main area of interest is currently systems and low-level programming, and recently I have started exploring iOS app development.</p>
+
+      <p>My coursework, self-study, and work experience has helped me develop a broad skillset. My coursework has included data structures and algorithms, systems, computer architecture, and PL theory. In the Spring 2023 semester, I started working as a Course Assistant for CS 115 (Intro to CompSci), which has helped with my debugging and communication skills.</p>
+
+      <p>Languages I have learned and am proficient in include Python, C, ARM assembly, Java, and OCaml. I recently learned Swift on my own time, and used it to develop my first major project, <a href="https://apps.apple.com/app/id6450715380">SimpleHW</a>.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-5">
+  <div class="row flex-md-row-reverse align-items-center">
+    <div class="col-md-4 pb-2 pb-md-0">
+      <h1 class="display-4 fw-bold text-end technicolor">Project spotlight.</h1>
+    </div>
+    <div class="col-md-8">
+      <div class="card-group my-4 pe-md-2">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-body-emphasis">SimpleHW</h5>
+            <h6 class="card-subtitle mb-2">Pure Swift/SwiftUI App</h6>
+            <p class="card-text text-body-emphasis">A simple app for keeping track of homework assignments. Add classes, assignments, due dates, and notifications. Separate from my coursework and self-taught with online resources and documentation from Apple.</p>
+            <a href="https://apps.apple.com/app/id6450715380" class="btn btn-light icon-link">
+              <img class="bi" src="../../static/images/link icons/app.svg">
+              View on App Store
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-body-emphasis">cpuwu</h5>
+            <h6 class="card-subtitle mb-2">Custom CPU & Assembler</h6>
+            <p class="card-text text-body-emphasis">This was a project completed as part of my coursework in computer architecture. It consists of a custom CPU architecture built from scratch using Logisim, as well as a Python script for assembling programs into "machine code".</p>
+            <a href="https://github.com/jharrisong830/cpuwu" class="btn btn-light icon-link">
+              <img class="bi" src="../../static/images/link icons/github-mark.svg">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

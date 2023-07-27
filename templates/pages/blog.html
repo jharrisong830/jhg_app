@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar sticky-top navbar-expand-md" data-bs-theme="dark" style="background-color: #253863">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold technicolor" href="/">John.com</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="#">Blog</a>
+        <a class="nav-link" href="/roadmap">Roadmap</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="px-4 py-5 text-center">
+  <h1 class="display-3 text-body-emphasis technicolor">Blog</h1>
+  <p class="lead">Articles about school, projects, and life.</p>
+</div>
+
+
+<div class="container">
+  <div class="row flex-md-row align-items-center">
+    {% for i, post in posts %}
+    {% set blog_id = post["blog_id"] %}
+      {% if i == 0 %}
+        <div class="col-lg-3 py-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-body-emphasis technicolor">{{ post["title"] }}</h5>
+              <h6 class="card-subtitle mb-2">{{ post["date"] }}</h6>
+              <p class="card-text text-body-emphasis">{{ post["description"] }}</p>
+              <a href="/blog/{{ blog_id }}" class="btn btn-outline-light btn-sm stretched-link">
+                View
+              </a>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="col-lg-3 py-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-body-emphasis">{{ post["title"] }}</h5>
+              <h6 class="card-subtitle mb-2">{{ post["date"] }}</h6>
+              <p class="card-text text-body-emphasis">{{ post["description"] }}</p>
+              <a href="/blog/{{ blog_id }}" class="btn btn-outline-light btn-sm stretched-link">
+                View
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
