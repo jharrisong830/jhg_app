@@ -10,9 +10,7 @@ app = flask.Flask(__name__)
 
 @app.route("/")
 def home():
-    name, url = webring_request("https://sitring.eric.si/jharrisong830/random")
-
-    return flask.render_template("pages/home.html", webring_name=name, webring_link=url)
+    return flask.render_template("pages/home.html")
 
 @app.route("/blog")
 def blog():
@@ -40,10 +38,7 @@ def get_post_date(p: dict[str:str]):
     """returns a date object for the date of the given post"""
     return strptime(p["date"], DATE_FORMAT)
 
-def webring_request(url: str) -> tuple[str, str]:
-    req = requests.get(url=url)
-    response = req.json()
-    return response["name"], response["url"]
+
 
 
 
