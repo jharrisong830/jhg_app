@@ -34,6 +34,10 @@ def blog_post(blog_id: int):
         if metadata == {}: flask.abort(404)
         return flask.render_template(f"pages/blog_posts/{metadata['filename']}", title=metadata["title"], description=metadata["description"], date=metadata["date"])
 
+@app.route("/privacy")
+def privacy():
+    return flask.render_template("pages/privacy.html")
+
 def get_post_date(p: dict[str:str]):
     """returns a date object for the date of the given post"""
     return strptime(p["date"], DATE_FORMAT)

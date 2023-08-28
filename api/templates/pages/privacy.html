@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar sticky-top navbar-expand-md" data-bs-theme="dark" style="background-color: #253863">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold technicolor" href="/">John.com</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/blog">Blog</a>
+        <a class="nav-link" href="/roadmap">Roadmap</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="px-4 py-5 text-center">
+  <h1 class="display-3 text-body-emphasis technicolor">Privacy</h1>
+  <p class="lead">TLDR: I don't collect your data ever.</p>
+</div>
+
+<div class="container py-5">
+  <div class="row flex-lg-row align-items-center">
+    <div class="col-md-4 pb-2 pb-md-0">
+      <h1 class="display-4 fw-bold technicolor">No data collected. Ever.</h1>
+    </div>
+    <div class="col-md-8 text-body-emphasis">
+      <p>If you use, test, download, or otherwise access any of my apps, sites, or programs, you can rest assured that I won't collect any data from you. Nothing I have released utilizes any telemetry or server-side storage of data. I'm not in the business of your data; I'm in the business of making cool apps!</p>
+
+      <p>SimpleHW (on the App Store) and SimpleMusic Transfer (in beta testing) store all data on-device. No extra data comes back to me, aside from any testing/crash-related info sent to me through TestFlight. Any data sent/received through outside services is subject to the service's privacy policy.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container text-center pt-4 pb-5">
+  <p class="lead text-body-emphasis">Connect with me.</p>
+  <div class="container flex-row align-items-center">
+    <a href="https://github.com/jharrisong830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+      <img class="bi" src="static/images/link_icons/github-mark.svg">
+      GitHub
+    </a>
+    <a href="mailto:john@jhg.app" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+      <img class="bi" src="static/images/link_icons/at.svg">
+      Email
+    </a>
+    <a href="https://linktr.ee/jharrisong830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+      <img class="bi" src="static/images/link_icons/tree.svg">
+      Linktree
+    </a>
+    <a href="https://linkedin.com/in/johngraham830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+      <img class="bi" src="static/images/link_icons/in.svg">
+      LinkedIn
+    </a>
+  </div>
+</div>
+
+{% endblock %}
