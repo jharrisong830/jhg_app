@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="navbar sticky-top navbar-expand-md" data-bs-theme="dark" style="background-color: #253863">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold technicolor" href="/">John.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/blog">Blog</a>
+                <a class="nav-link" href="/roadmap">Roadmap</a>
+                <a class="nav-link active" href="#">JSON Convert Tool</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="px-4 py-5 text-center">
+    <h1 class="display-3 text-body-emphasis technicolor">Convert</h1>
+    <p class="lead">Convert JSON objects to an HTML table.</p>
+</div>
+
+<div class="container py-5">
+    <form action="{{ url_for('convert') }}" method="POST">
+        <label for="jsonInp" class="form-label">JSON Object</label>
+        <textarea rows=10 class="form-control" name="jsonInp" id="jsonInp"></textarea>
+        <button type="submit" class="btn btn-light my-4">Render to HTML</button>
+    </form>
+</div>
+
+<div class="container py-5">
+    {{ tableCells | safe }}
+</div>
+
+
+<div class="container text-center pt-4 pb-5">
+    <p class="lead text-body-emphasis">Connect with me.</p>
+    <div class="container flex-row align-items-center">
+        <a href="https://github.com/jharrisong830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+            <img class="bi" src="static/images/link_icons/github-mark.svg">
+            GitHub
+        </a>
+        <a href="mailto:johngraham830@icloud.com" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+            <img class="bi" src="static/images/link_icons/at.svg">
+            Email
+        </a>
+        <a href="https://linktr.ee/jharrisong830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+            <img class="bi" src="static/images/link_icons/tree.svg">
+            Linktree
+        </a>
+        <a href="https://linkedin.com/in/johngraham830" class="btn btn-light btn-lg icon-link mx-2 my-2 my-md-0">
+            <img class="bi" src="static/images/link_icons/in.svg">
+            LinkedIn
+        </a>
+    </div>
+</div>
+
+{% endblock %}
