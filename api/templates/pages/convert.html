@@ -27,7 +27,7 @@
 <div class="container py-5">
     <form action="{{ url_for('convert') }}" method="POST">
         <label for="jsonInp" class="form-label">JSON Object</label>
-        <textarea rows=10 class="form-control" name="jsonInp" id="jsonInp"></textarea>
+        <textarea rows=10 class="form-control" name="jsonInp" id="jsonInp">{{ inputData }}</textarea>
         <button type="submit" class="btn btn-light my-4">Render to HTML</button>
     </form>
 </div>

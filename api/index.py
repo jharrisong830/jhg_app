@@ -46,15 +46,16 @@ def get_post_date(p: dict[str:str]):
 @app.route("/convert", methods=["GET", "POST"])
 def convert():
     if flask.request.method == "GET":
-        return flask.render_template("pages/convert.html", tableCells="<p class=\"text-center lead text-body-emphasis\">Enter a valid JSON object above, and it will render in HTML here!</p>")
+        return flask.render_template("pages/convert.html", tableCells="<p class=\"text-center lead text-body-emphasis\">Enter a valid JSON object above, and it will render in HTML here!</p>", inputData="")
     elif flask.request.method == "POST":
+        data = ""
         try:
             data = flask.request.form["jsonInp"]
             jsonObj = json.loads(data)
             tableString = renderObject(jsonObj)
-            return flask.render_template("pages/convert.html", tableCells=tableString)
+            return flask.render_template("pages/convert.html", tableCells=tableString, inputData=data)
         except:
-            return flask.render_template("pages/convert.html", tableCells="<p class=\"text-center lead text-body-emphasis\">There was an error parsing your JSON text. Please try again, and insure your input has valid syntax.</p>")
+            return flask.render_template("pages/convert.html", tableCells="<p class=\"text-center lead text-body-emphasis\">There was an error parsing your JSON text. Please try again, and insure your input has valid syntax.</p>", inputData=data)
 
 
 def renderObject(obj) -> str:
