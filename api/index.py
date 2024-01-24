@@ -60,9 +60,8 @@ def convert():
 
 def renderObject(obj) -> str:
     if isinstance(obj, dict):
-        oKeys = obj.keys()
-        tableString = f"<table class=\"table table-light table-hover table-bordered\"> <tr> <th>[obj]</th> {''.join([f'<th>{x}</th>' for x in oKeys])} </tr>" # adding header row
-        tableString += f"<tr> <td></td> {''.join([f'<td>{renderObject(obj[x])}</td>' for x in oKeys])} </tr> </table>"
+        tableString = f"<table class=\"table table-light table-hover table-bordered\"> {''.join([f'<tr> <th>{x}</th> <td>{renderObject(obj[x])}</td> </tr>' for x in obj.keys()])} </table>" # adding header row
+        # tableString += f"<tr> <td></td> {''.join([f'<td>{renderObject(obj[x])}</td>' for x in oKeys])} </tr> </table>"
         return tableString
     elif isinstance(obj, list):
         tableString = f"<table class=\"table table-light table-hover table-bordered\"> <tr> <th>[ind]</th> <th>[elem]</th> </tr>" # adding header row
