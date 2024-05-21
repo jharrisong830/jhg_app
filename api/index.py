@@ -1,6 +1,7 @@
 import flask
 import json
 from time import strptime
+from html import escape
 
 DATE_FORMAT = "%Y-%m-%d"
 
@@ -13,7 +14,7 @@ def home():
 
 @app.route("/blog")
 def blog():
-    with open("api/templates/pages/blog_posts/blog_database.json") as f:
+    with open("templates/pages/blog_posts/blog_database.json") as f:
         data = json.load(f)
         sorted_posts = sorted(data, reverse=True, key=get_post_date) # type: ignore
         return flask.render_template("pages/blog.html", posts=enumerate(sorted_posts))
@@ -24,7 +25,7 @@ def roadmap():
 
 @app.route("/blog/<int:blog_id>")
 def blog_post(blog_id: int):
-    with open("api/templates/pages/blog_posts/blog_database.json") as f:
+    with open("templates/pages/blog_posts/blog_database.json") as f:
         metadata = {}
         data = json.load(f)
         for post in data:
@@ -60,7 +61,7 @@ def convert():
 
 def renderObject(obj) -> str:
     if isinstance(obj, dict):
-        tableString = f"<table class=\"table table-light table-hover table-bordered\"> {''.join([f'<tr> <th>{x}</th> <td>{renderObject(obj[x])}</td> </tr>' for x in obj.keys()])} </table>" # adding header row
+        tableString = f"<table class=\"table table-light table-hover table-bordered\"> {''.join([f'<tr> <th>{escape(x)}</th> <td>{renderObject(obj[x])}</td> </tr>' for x in obj.keys()])} </table>" # adding header row
         # tableString += f"<tr> <td></td> {''.join([f'<td>{renderObject(obj[x])}</td>' for x in oKeys])} </tr> </table>"
         return tableString
     elif isinstance(obj, list):
@@ -70,7 +71,7 @@ def renderObject(obj) -> str:
         tableString += "</table>"
         return tableString
     else:
-        return str(obj)
+        return escape(str(obj))
 
 
 
